@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --vdb: hsl(233, 47%, 7%);
+    --ddb: hsl(244, 38%, 16%);
+    --sv: hsl(277, 64%, 61%);
+    --svt: hsl(277, 64%, 61%, 0.6);
+    --w: hsl(0, 0%, 100%);
+    --stw: hsla(0, 0%, 100%, 0.75);
+    --stw: hsla(0, 0%, 100%, 0.6);
+}
+body {
+    font-family: 'Inter',sans-serif;
+    min-height: 100vh;
+    background: var(--vdb);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    gap: 2em;
+}
+.container {
+    max-width: 1020px;
+    margin: 0 auto;
+}
+.wrapper {
+    background-color: var(--ddb);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 2rem;
+}
+.img-component img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.img-component {
+    position: relative;
+}
+.img-component::after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: var(--svt);
+}
+.text-component {
+    padding: 13%;
+}
+.title {
+    color: var(--w);
+    font-weight: 700;
+    padding-bottom: 22px;
+}
+
+.title span {
+    color: var(--sv);
+}
+.subtitle {
+    color: var(--stw);
+    line-height: 1.8;
+}
+.stat-box {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    padding-top: 60px;
+}
+.stat-box p.num {
+    color: var(--w);
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+.stat-box p {
+    color: var(--stw);
+}
+@media only screen and (max-width: 768px) and (min-width: 426px) {
+    body {
+        font-size: 12px;
+    }
+    .text-component {
+        padding: 12%;
+    }
+    .title {
+        font-size: 22px;
+    }
+    .stat-box {
+        padding-top: 30px;
+    }
+    .stat-box p.num {
+        font-size: 17px;
+    }
+}
+@media only screen and (max-width: 425px) {
+    body {
+        text-align: center;
+    }
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+    .img-component {
+        order: -1;
+    }
+    .text-component {
+        padding: 12% 8%;
+    }
+    .title {
+        font-size: 23px;
+        line-height: 1.4;
+    }
+    .stat-box {
+        flex-direction: column;
+        padding-top: 30px;
+    }
+    .stat-box div {
+        margin-top: 20px;
+    }
+}
+.attribution { 
+    text-align: center; 
+    color: var(--stw); 
+}
+.attribution:hover {
+    animation: bob 0.5s ease-out forwards;
+}
+.attribution a { 
+    color: var(--sv);
+    text-decoration: none; 
+}
+@keyframes bob {
+    100% {
+        scale: 1.5;
+        padding: 1em;
+        border: 0.5em solid var(--stw);
+        border-radius: 1em;
+        box-shadow: 0.5em 0.5em 0.5em var(--sv);
+    }
+}
